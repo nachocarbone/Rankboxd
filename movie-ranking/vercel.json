@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "api/letterboxd.js": {
-      "maxDuration": 30
-    }
-  }
-}
