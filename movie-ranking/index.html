@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Rankboxd</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <button class="historyBtn" onclick="showHistory()">📋 <span id="historyBtnText">Historial</span></button>
+  <div class="logoWrap">
+    <svg viewBox="0 0 210 44" xmlns="http://www.w3.org/2000/svg" class="logoSvg">
+      <rect x="0" y="2" width="26" height="6" rx="3" fill="#00c030"/>
+      <rect x="0" y="16" width="18" height="6" rx="3" fill="#677988"/>
+      <rect x="0" y="30" width="11" height="6" rx="3" fill="#2c3440"/>
+      <text x="38" y="32" font-family="'Inter','DM Sans',sans-serif" font-size="28" font-weight="700" letter-spacing="-1" fill="#ffffff">rankboxd</text>
+      <circle cx="188" cy="8" r="4" fill="#00c030"/>
+    </svg>
+    <p class="logoTagline" id="headerSubtitle">Ordenalas sin saber qué viene después</p>
+  </div>
+  <div class="counter" id="counter"><span id="countCurrent">1</span>/5</div>
+  <div class="langSwitch">
+    <button class="langBtn active" id="langES" onclick="setLang('es')">ES</button>
+    <button class="langBtn" id="langEN" onclick="setLang('en')">EN</button>
+  </div>
+</header>
+
+<!-- HOME SCREEN -->
+<div class="homeScreen" id="homeScreen">
+  <div class="homeCard">
+    <div class="lbLogo">🎬</div>
+    <h2 class="homeTitle"><span data-i18n="homeTitle">Cargá tu Letterboxd</span></h2>
+
+    <div class="homeSteps">
+      <div class="homeStep">
+        <span class="stepNum">1</span>
+        <div class="stepInfo">
+          <div class="stepLabel"><span data-i18n="step1title">Exportá tus datos</span></div>
+          <div class="stepDesc"><span data-i18n="step1desc">Descargá tu historial desde Letterboxd</span></div>
+        </div>
+        <a class="stepBtn" href="https://letterboxd.com/settings/data/" target="_blank"><span data-i18n="goBtn">Ir →</span></a>
+      </div>
+      <div class="homeStep">
+        <span class="stepNum">2</span>
+        <div class="stepInfo">
+          <div class="stepLabel"><span data-i18n="step2title">Subí el archivo <code>watched.csv</code></span></div>
+          <div class="stepDesc"><span data-i18n="step2desc">Está dentro del ZIP que descargaste</span></div>
+        </div>
+        <label class="stepBtn csvLabel">
+          Subir
+          <input type="file" id="csvInput" accept=".csv" onchange="handleCSV(event)" style="display:none">
+        </label>
+      </div>
+    </div>
+
+    <div class="homeError" id="homeError"></div>
+  </div>
+</div>
+
+<!-- LOADING SCREEN -->
+<div class="loadingScreen" id="loadingScreen">
+  <div class="loadingInner">
+    <div class="loadingTitle"><span data-i18n="loadingTitle">Cargando tu lista...</span></div>
+    <div class="loadingBarWrap">
+      <div class="loadingBarFill" id="loadingBar"></div>
+    </div>
+    <div class="loadingText" id="loadingText">Buscando pósteres...</div>
+  </div>
+</div>
+
+<!-- GAME SCREEN -->
+<div class="container" id="gameScreen">
+  <div class="posterSection">
+    <div class="posterWrap">
+      <img id="poster" src="" alt="">
+      <div class="posterGlow"></div>
+    </div>
+    <div id="title"></div>
+  </div>
+  <div class="buttonsSection">
+    <span class="label"><span data-i18n="whichSpot">¿En qué puesto?</span></span>
+    <div class="buttons" id="buttons"></div>
+  </div>
+  <div class="rankingSection">
+    <span class="label"><span data-i18n="yourRanking">Tu ranking</span></span>
+    <div id="ranking"></div>
+  </div>
+</div>
+
+<!-- END SCREEN -->
+<div class="endScreen" id="endScreen">
+  <div class="resultBadge" id="resultBadge"></div>
+  <div class="resultMsg" id="resultMsg"></div>
+  <div class="finalRanking" id="finalRanking"></div>
+  <div class="ratingSection">
+    <span class="ratingLabel"><span data-i18n="ratingQ">¿Qué tan bueno quedó tu ranking?</span></span>
+    <div class="starsWrap" id="starsWrap"></div>
+    <div class="likeWrap">
+      <button class="likeBtn" id="likeBtn" onclick="toggleLike()" title="Me gustó">♥</button>
+    </div>
+  </div>
+  <div class="endButtons">
+    <button class="saveBtn" id="saveBtn" onclick="saveToHistory()"><span data-i18n="saveBtn">Guardar en historial</span></button>
+    <button class="shareBtn" onclick="shareRanking()">📥 Descargar imagen</button>
+    <button class="playAgainBtn" onclick="startGame()"><span data-i18n="playAgain">Jugar otra vez</span></button>
+    <button class="backHomeBtn" onclick="showHome()"><span data-i18n="changeList">Cambiar lista</span></button>
+  </div>
+  <div class="savedMsg" id="savedMsg"><span data-i18n="saved">✓ Guardado en el historial</span></div>
+</div>
+
+<!-- SHARE CARD (off-screen, used for screenshot) -->
+<div id="shareCard" style="position:fixed;left:-9999px;top:0;width:400px;">
+  <div class="shareCardInner">
+    <div class="shareCardHeader">
+      <svg viewBox="0 0 210 44" xmlns="http://www.w3.org/2000/svg" style="width:130px;height:auto;">
+        <rect x="0" y="2" width="26" height="6" rx="3" fill="#00c030"/>
+        <rect x="0" y="16" width="18" height="6" rx="3" fill="#677988"/>
+        <rect x="0" y="30" width="11" height="6" rx="3" fill="#2c3440"/>
+        <text x="38" y="32" font-family="'Inter','DM Sans',sans-serif" font-size="28" font-weight="700" letter-spacing="-1" fill="#ffffff">rankboxd</text>
+        <circle cx="188" cy="8" r="4" fill="#00c030"/>
+      </svg>
+      <div class="shareCardStars" id="shareCardStars"></div>
+    </div>
+    <div class="shareCardMovies" id="shareCardMovies"></div>
+    <div class="shareCardFooter">rankboxd.vercel.app</div>
+  </div>
+</div>
+
+<!-- HISTORY SCREEN -->
+<div class="historyScreen" id="historyScreen">
+  <div class="historyHeader">
+    <button class="backBtn" onclick="goBack()">← Volver</button>
+    <h2>Historial</h2>
+    <div class="headerActions">
+      <button class="clearBtn" onclick="clearHistory()"><span data-i18n="clearAll">Borrar todo</span></button>
+    </div>
+  </div>
+  <div id="historyContent"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
