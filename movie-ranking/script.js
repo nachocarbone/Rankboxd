@@ -593,3 +593,6 @@ function roundRect(ctx, x, y, w, h, r) {
 }
 
 /* ── INIT ── */
+setupStars();
+setLang(currentLang);
+showHome();
