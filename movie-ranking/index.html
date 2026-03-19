@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="twp-CQQLrW6oF5O2uJnfUAkeI55WkTlzu6aahVQViSA" />
+  <meta name="description" content="Rank your Letterboxd movies without knowing what comes next.">
+  <meta property="og:title" content="Rankboxd">
+  <meta property="og:description" content="Rank your Letterboxd movies without knowing what comes next.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/nachocarbone/Rankboxd/main/movie-ranking/preview.png">
+  <meta property="og:url" content="https://rankboxd.vercel.app">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rankboxd">
+  <meta name="twitter:description" content="Rank your Letterboxd movies without knowing what comes next.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/nachocarbone/Rankboxd/main/movie-ranking/preview.png">
+  <title>Rankboxd</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2388117638082206" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='2' y='4' width='16' height='5' rx='2.5' fill='%2300c030'/%3E%3Crect x='2' y='14' width='11' height='5' rx='2.5' fill='%23677988'/%3E%3Crect x='2' y='24' width='7' height='5' rx='2.5' fill='%232c3440'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- Decorative bars -->
+<div class="decoBarsLeft">
+  <svg viewBox="0 0 80 500" xmlns="http://www.w3.org/2000/svg" width="80" height="500">
+    <rect x="10" y="350" width="12" height="150" rx="6" fill="#00c030" opacity="0.6"/>
+    <rect x="28" y="300" width="12" height="200" rx="6" fill="#00c030" opacity="0.4"/>
+    <rect x="46" y="320" width="12" height="180" rx="6" fill="#00c030" opacity="0.25"/>
+    <rect x="64" y="370" width="12" height="130" rx="6" fill="#00c030" opacity="0.15"/>
+    <rect x="10" y="220" width="12" height="80" rx="6" fill="#00c030" opacity="0.1"/>
+    <rect x="28" y="180" width="12" height="90" rx="6" fill="#677988" opacity="0.15"/>
+    <rect x="46" y="240" width="12" height="60" rx="6" fill="#677988" opacity="0.1"/>
+    <rect x="64" y="260" width="12" height="50" rx="6" fill="#00c030" opacity="0.08"/>
+  </svg>
+</div>
+<div class="decoBarsRight">
+  <svg viewBox="0 0 80 500" xmlns="http://www.w3.org/2000/svg" width="80" height="500">
+    <rect x="10" y="320" width="12" height="180" rx="6" fill="#00c030" opacity="0.15"/>
+    <rect x="28" y="270" width="12" height="230" rx="6" fill="#00c030" opacity="0.3"/>
+    <rect x="46" y="300" width="12" height="200" rx="6" fill="#00c030" opacity="0.5"/>
+    <rect x="64" y="330" width="12" height="170" rx="6" fill="#00c030" opacity="0.7"/>
+    <rect x="10" y="200" width="12" height="80" rx="6" fill="#677988" opacity="0.1"/>
+    <rect x="28" y="160" width="12" height="70" rx="6" fill="#00c030" opacity="0.1"/>
+    <rect x="46" y="210" width="12" height="65" rx="6" fill="#677988" opacity="0.08"/>
+    <rect x="64" y="230" width="12" height="55" rx="6" fill="#00c030" opacity="0.12"/>
+  </svg>
+</div>
+
+<header>
+  <nav class="headerNav">
+    <a class="navLink" href="https://github.com/nachocarbone/Rankboxd" target="_blank">Repo</a>
+    <a class="navLink" href="https://x.com/lannisternacho" target="_blank">Contact</a>
+    <a class="navLink navLinkSupport" href="https://ko-fi.com/lannisternacho" target="_blank">Support me</a>
+    <a class="navLink" href="#" onclick="showPrivacy(); return false;">Privacy</a>
+  </nav>
+  <div class="logoWrap" onclick="goToMenu()" style="cursor:pointer;">
+    <svg viewBox="0 0 210 44" xmlns="http://www.w3.org/2000/svg" class="logoSvg">
+      <rect x="0" y="2" width="26" height="6" rx="3" fill="#00c030"/>
+      <rect x="0" y="16" width="18" height="6" rx="3" fill="#677988"/>
+      <rect x="0" y="30" width="11" height="6" rx="3" fill="#2c3440"/>
+      <text x="38" y="32" font-family="'Inter','DM Sans',sans-serif" font-size="28" font-weight="700" letter-spacing="-1" fill="#ffffff">rankboxd</text>
+      <circle cx="188" cy="8" r="4" fill="#00c030"/>
+    </svg>
+    <p class="logoTagline" id="headerSubtitle"><span data-i18n="subtitle">Tus películas. Tus juegos.</span></p>
+  </div>
+  <div class="headerRight">
+    <button class="historyBtn" id="historyBtnGame" onclick="showHistory()" style="display:none;">📋 <span data-i18n="history">Historial</span></button>
+    <div class="counter" id="counter"><span id="countCurrent">1</span>/<span id="counterTotal">5</span></div>
+    <div class="langSwitch">
+      <button class="langBtn active" id="langES" onclick="setLang('es')">ES</button>
+      <button class="langBtn" id="langEN" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</header>
+
+<!-- EPIC INTRO ANIMATION -->
+<div id="introOverlay" style="position:fixed;inset:0;background:#14181c;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;overflow:hidden;">
+  <div id="introPosters" style="position:absolute;inset:0;pointer-events:none;"></div>
+  <div id="introLogo" style="position:relative;z-index:2;opacity:0;transform:scale(0.7);transition:opacity 0.6s ease,transform 0.6s ease;">
+    <svg viewBox="0 0 210 44" xmlns="http://www.w3.org/2000/svg" style="width:180px;height:auto;filter:drop-shadow(0 0 24px rgba(0,192,48,0.6));">
+      <rect x="0" y="2" width="26" height="6" rx="3" fill="#00c030"/>
+      <rect x="0" y="16" width="18" height="6" rx="3" fill="#677988"/>
+      <rect x="0" y="30" width="11" height="6" rx="3" fill="#2c3440"/>
+      <text x="38" y="32" font-family="'Inter','DM Sans',sans-serif" font-size="28" font-weight="700" letter-spacing="-1" fill="#ffffff">rankboxd</text>
+      <circle cx="188" cy="8" r="4" fill="#00c030"/>
+    </svg>
+    <div id="introTagline" style="text-align:center;font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:4px;color:#677988;margin-top:10px;opacity:0;transition:opacity 0.5s 0.3s;">TUS PELÍCULAS. TUS JUEGOS.</div>
+  </div>
+</div>
+
+<!-- HOME SCREEN -->
+<div class="homeScreen" id="homeScreen">
+  <div class="homeCard">
+    <div class="lbLogo">
+      <svg viewBox="0 0 120 24" xmlns="http://www.w3.org/2000/svg" width="120" height="24">
+        <polygon points="12,2 14.4,8.2 21,8.2 15.8,12.1 17.8,18.5 12,14.8 6.2,18.5 8.2,12.1 3,8.2 9.6,8.2" fill="#00c030"/>
+        <polygon points="36,2 38.4,8.2 45,8.2 39.8,12.1 41.8,18.5 36,14.8 30.2,18.5 32.2,12.1 27,8.2 33.6,8.2" fill="#00c030"/>
+        <polygon points="60,2 62.4,8.2 69,8.2 63.8,12.1 65.8,18.5 60,14.8 54.2,18.5 56.2,12.1 51,8.2 57.6,8.2" fill="#00c030"/>
+        <polygon points="84,2 86.4,8.2 93,8.2 87.8,12.1 89.8,18.5 84,14.8 78.2,18.5 80.2,12.1 75,8.2 81.6,8.2" fill="#00c030"/>
+        <polygon points="108,2 110.4,8.2 117,8.2 111.8,12.1 113.8,18.5 108,14.8 102.2,18.5 104.2,12.1 99,8.2 105.6,8.2" fill="#00c030"/>
+      </svg>
+    </div>
+    <h2 class="homeTitle"><span data-i18n="homeTitle">Cargá tu Letterboxd</span></h2>
+    <div class="homeSteps">
+      <div class="homeStep">
+        <span class="stepNum">1</span>
+        <div class="stepInfo">
+          <div class="stepLabel"><span data-i18n="step1title">Descargá tu historial de Letterboxd</span></div>
+          <div class="stepDesc"><span data-i18n="step1desc">Tocá el botón — se descarga automático si estás logueado</span></div>
+        </div>
+        <a class="stepBtn" href="https://letterboxd.com/data/export/?fromApp=false" target="_blank"><span data-i18n="goBtn">Descargar →</span></a>
+      </div>
+      <div class="homeStep">
+        <span class="stepNum">2</span>
+        <div class="stepInfo">
+          <div class="stepLabel"><span data-i18n="step2title">Subí el ZIP descargado</span></div>
+          <div class="stepDesc"><span data-i18n="step2desc">El archivo .zip que descargaste de Letterboxd</span></div>
+        </div>
+        <label class="stepBtn csvLabel">
+          <span data-i18n="uploadBtn">Subir</span>
+          <input type="file" id="csvInput" accept=".csv,.zip" onchange="handleFile(event)" style="display:none">
+        </label>
+      </div>
+    </div>
+    <div class="homeError" id="homeError"></div>
+    <div class="homeDivider"><span data-i18n="orText">o</span></div>
+    <div style="text-align:center;padding:8px 0 4px;">
+      <div class="stepLabel" style="margin-bottom:4px;"><span data-i18n="tryPopular">Sin Letterboxd</span></div>
+      <div class="stepDesc" style="margin-bottom:12px;"><span data-i18n="tryPopularDesc">300 películas más populares del cine</span></div>
+      <button onclick="loadPopularMovies()" style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;padding:8px 20px;border:1px solid #677988;border-radius:8px;background:transparent;color:#677988;cursor:pointer;" onmouseover="this.style.borderColor='#00c030';this.style.color='#00c030'" onmouseout="this.style.borderColor='#677988';this.style.color='#677988'"><span data-i18n="tryPopularBtn">Jugar →</span></button>
+    </div>
+    <div class="homeError" id="homeErrorDemo"></div>
+  </div>
+</div>
+
+<!-- GAME MENU SCREEN -->
+<div class="gameMenuScreen" id="gameMenuScreen">
+  <div class="gameMenuHeader">
+    <h2 class="gameMenuTitle"><span data-i18n="chooseGame">Elegí un juego</span></h2>
+  </div>
+  <div class="gameMenuGrid">
+    <div class="gameCard" onclick="showDifficulty()">
+      <div class="gameCardIllustration">
+        <svg viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg" width="100%" height="140">
+          <rect x="10" y="20" width="40" height="58" rx="4" fill="#2c3440" stroke="#3d4e5f" stroke-width="1"/>
+          <rect x="58" y="28" width="40" height="58" rx="4" fill="#2c3440" stroke="#3d4e5f" stroke-width="1"/>
+          <rect x="106" y="15" width="40" height="58" rx="4" fill="#1c2228" stroke="#00c030" stroke-width="1.5"/>
+          <rect x="154" y="30" width="40" height="58" rx="4" fill="#2c3440" stroke="#3d4e5f" stroke-width="1"/>
+          <rect x="202" y="22" width="40" height="58" rx="4" fill="#2c3440" stroke="#3d4e5f" stroke-width="1"/>
+          <text x="30" y="55" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="18" fill="#677988">3</text>
+          <text x="78" y="63" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="18" fill="#677988">5</text>
+          <text x="126" y="50" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="22" fill="#00c030">1</text>
+          <text x="174" y="65" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="18" fill="#677988">2</text>
+          <text x="222" y="57" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="18" fill="#677988">4</text>
+          <text x="130" y="118" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="28" fill="#00c030" opacity="0.4">?</text>
+        </svg>
+      </div>
+      <div class="gameCardBottom">
+        <div class="gameCardTop">
+          <span class="gameCardNum">01</span>
+          <div class="gameCardBadgeGreen">PLAY</div>
+        </div>
+        <div class="gameCardName"><span data-i18n="game1name">Rank sin saber qué sigue</span></div>
+        <div class="gameCardDesc"><span data-i18n="game1desc">Posicioná cada película sin saber qué viene después</span></div>
+      </div>
+    </div>
+    <div class="gameCard" onclick="startHigherOrLower()">
+      <div class="gameCardIllustration">
+        <svg viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg" width="100%" height="140">
+          <rect x="30" y="15" width="80" height="110" rx="6" fill="#2c3440" stroke="#00c030" stroke-width="1.5"/>
+          <text x="70" y="80" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="14" fill="#e0e0e0">The Godfather</text>
+          <text x="70" y="100" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="22" fill="#00c030">4.4 ★</text>
+          <text x="130" y="78" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="28" fill="#677988">VS</text>
+          <rect x="150" y="25" width="80" height="110" rx="6" fill="#2c3440" stroke="#3d4e5f" stroke-width="1"/>
+          <text x="190" y="90" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="14" fill="#e0e0e0">Se7en</text>
+          <text x="190" y="110" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="16" fill="#677988">?? ★</text>
+        </svg>
+      </div>
+      <div class="gameCardBottom">
+        <div class="gameCardTop">
+          <span class="gameCardNum">02</span>
+          <div class="gameCardBadgeGreen">PLAY</div>
+        </div>
+        <div class="gameCardName"><span data-i18n="game2name">Higher or Lower</span></div>
+        <div class="gameCardDesc"><span data-i18n="game2desc">Which film has a higher rating?</span></div>
+      </div>
+    </div>
+    <div class="gameCard" onclick="startTournament()" style="grid-column: 1 / -1; max-width: 340px; margin: 0 auto;">
+      <div class="gameCardIllustration">
+        <svg viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg" width="100%" height="140">
+          <!-- Left bracket -->
+          <rect x="10" y="18" width="36" height="22" rx="4" fill="#2c3440" stroke="#3d4e5f" stroke-width="1"/>
+          <rect x="10" y="52" width="36" height="22" rx="4" fill="#2c3440" stroke="#3d4e5f" stroke-width="1"/>
+          <rect x="10" y="86" width="36" height="22" rx="4" fill="#2c3440" stroke="#3d4e5f" stroke-width="1"/>
+          <rect x="10" y="120" width="36" height="18" rx="4" fill="#2c3440" stroke="#3d4e5f" stroke-width="1"/>
+          <!-- Bracket lines left -->
+          <line x1="46" y1="29" x2="56" y2="29" stroke="#3d4e5f" stroke-width="1"/>
+          <line x1="56" y1="29" x2="56" y2="63" stroke="#3d4e5f" stroke-width="1"/>
+          <line x1="46" y1="63" x2="56" y2="63" stroke="#3d4e5f" stroke-width="1"/>
+          <line x1="46" y1="97" x2="56" y2="97" stroke="#3d4e5f" stroke-width="1"/>
+          <line x1="56" y1="97" x2="56" y2="129" stroke="#3d4e5f" stroke-width="1"/>
+          <line x1="46" y1="129" x2="56" y2="129" stroke="#3d4e5f" stroke-width="1"/>
+          <!-- Semi left -->
+          <rect x="60" y="38" width="40" height="24" rx="4" fill="#2c3440" stroke="#3d4e5f" stroke-width="1"/>
+          <rect x="60" y="106" width="40" height="24" rx="4" fill="#2c3440" stroke="#3d4e5f" stroke-width="1"/>
+          <line x1="100" y1="50" x2="110" y2="50" stroke="#3d4e5f" stroke-width="1"/>
+          <line x1="110" y1="50" x2="110" y2="118" stroke="#3d4e5f" stroke-width="1"/>
+          <line x1="100" y1="118" x2="110" y2="118" stroke="#3d4e5f" stroke-width="1"/>
+          <!-- Final -->
+          <rect x="114" y="72" width="44" height="28" rx="4" fill="#1c2228" stroke="#00c030" stroke-width="1.5"/>
+          <text x="136" y="91" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="13" fill="#00c030">FINAL</text>
+          <!-- Trophy -->
+          <text x="192" y="90" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="40" fill="#00c030" opacity="0.25">🏆</text>
+          <text x="192" y="90" text-anchor="middle" font-family="sans-serif" font-size="32" fill="#00c030" opacity="0.3">🏆</text>
+        </svg>
+      </div>
+      <div class="gameCardBottom">
+        <div class="gameCardTop">
+          <span class="gameCardNum">03</span>
+          <div class="gameCardBadgeGreen">PLAY</div>
+        </div>
+        <div class="gameCardName"><span data-i18n="game3name">Torneo</span></div>
+        <div class="gameCardDesc"><span data-i18n="game3desc">Bracket de 8 o 16 películas. ¿Cuál es tu favorita?</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- DIFFICULTY SCREEN -->
+<div class="difficultyScreen" id="difficultyScreen">
+  <div class="difficultyHeader">
+    <h2 class="difficultyTitle"><span data-i18n="chooseDiff">Choose difficulty</span></h2>
+  </div>
+  <div class="difficultyGrid">
+    <div class="diffCard" onclick="setDifficulty(5)">
+      <div class="diffCardTop">
+        <span class="diffCardNum">5</span>
+        <span class="diffCardLabel diffEasy">EASY</span>
+      </div>
+      <div class="diffCardName" data-i18n="diffEasy">Easy</div>
+      <div class="diffCardDesc" data-i18n="diffEasyDesc">5 films — quick and fun</div>
+    </div>
+    <div class="diffCard" onclick="setDifficulty(10)">
+      <div class="diffCardTop">
+        <span class="diffCardNum">10</span>
+        <span class="diffCardLabel diffMedium">MEDIUM</span>
+      </div>
+      <div class="diffCardName" data-i18n="diffMedium">Medium</div>
+      <div class="diffCardDesc" data-i18n="diffMediumDesc">10 films — a real challenge</div>
+    </div>
+    <div class="diffCard" onclick="setDifficulty(15)">
+      <div class="diffCardTop">
+        <span class="diffCardNum">15</span>
+        <span class="diffCardLabel diffHard">HARD</span>
+      </div>
+      <div class="diffCardName" data-i18n="diffHard">Hard</div>
+      <div class="diffCardDesc" data-i18n="diffHardDesc">15 films — only for the brave</div>
+    </div>
+  </div>
+  <button class="backBtn" style="margin-top:24px;" onclick="showGameMenu()"><span data-i18n="back">← Volver</span></button>
+</div>
+
+
+<!-- HIGHER OR LOWER SCREEN -->
+<div class="holScreen" id="holScreen">
+  <div class="holStreakBar">
+    <span class="holStreakLabel" data-i18n="streak">Racha</span>
+    <span class="holStreakNum" id="holStreak">0</span>
+    <span class="holBestLabel" data-i18n="best">Mejor</span>
+    <span class="holBestNum" id="holBest">0</span>
+  </div>
+  <div class="holCards">
+    <div class="holCard holCardLeft" id="holCardA">
+      <img class="holPoster" id="holPosterA" src="" alt="">
+      <div class="holCardInfo">
+        <div class="holTitle" id="holTitleA"></div>
+        <div class="holRating" id="holRatingA"></div>
+      </div>
+    </div>
+    <div class="holVS">VS</div>
+    <div class="holCard holCardRight" id="holCardB">
+      <img class="holPoster" id="holPosterB" src="" alt="">
+      <div class="holCardInfo">
+        <div class="holTitle" id="holTitleB"></div>
+      </div>
+      <div class="holButtons" id="holButtons">
+        <div class="holResult" id="holResult"></div>
+        <button class="holBtn holBtnHigher" onclick="holChoose('higher')">▲ <span data-i18n="higher">Higher</span></button>
+        <button class="holBtn holBtnTie" id="holTieBtn" style="display:none;" onclick="holChoose('tie')"><span data-i18n="tie">Tie</span></button>
+        <button class="holBtn holBtnLower" onclick="holChoose('lower')">▼ <span data-i18n="lower">Lower</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HIGHER OR LOWER DIFFICULTY -->
+<div class="holDiffScreen" id="holDiffScreen">
+  <div class="difficultyHeader">
+    <h2 class="difficultyTitle"><span data-i18n="chooseDiff">Choose difficulty</span></h2>
+  </div>
+  <div class="difficultyGrid" style="grid-template-columns:1fr 1fr;">
+    <div class="diffCard" onclick="startHOLGame('normal')">
+      <div class="diffCardTop">
+        <span class="diffCardNum" style="font-size:28px;">NORMAL</span>
+      </div>
+      <div class="diffCardDesc" data-i18n="holNormalDesc">Ties count as correct</div>
+    </div>
+    <div class="diffCard" onclick="startHOLGame('hard')">
+      <div class="diffCardTop">
+        <span class="diffCardNum" style="font-size:28px;color:#e63946;">HARD</span>
+      </div>
+      <div class="diffCardDesc" data-i18n="holHardDesc">Pick "Tie" or lose your streak</div>
+    </div>
+  </div>
+  <button class="backBtn" style="margin-top:24px;" onclick="showGameMenu()"><span data-i18n="back">← Volver</span></button>
+</div>
+
+<!-- HIGHER OR LOWER END -->
+<div class="holEndScreen" id="holEndScreen">
+  <div class="holEndInner">
+    <div class="holEndTitle" data-i18n="gameOver">Game Over</div>
+    <div class="holEndStreak" id="holEndStreak"></div>
+    <div class="holEndBest" id="holEndBest"></div>
+    <div class="holMemeWrap" id="holMemeWrap">
+      <img class="holMemeGif" id="holMemeGif" src="" alt="meme">
+    </div>
+    <div class="endButtons" style="justify-content:center;margin-top:24px;">
+      <button class="playAgainBtn" onclick="restartHOL()" data-i18n="playAgain">Jugar otra vez</button>
+      <button class="saveBtn" onclick="showGameMenu()" data-i18n="back">← Menú</button>
+    </div>
+  </div>
+</div>
+
+<!-- LOADING SCREEN -->
+<div class="loadingScreen" id="loadingScreen">
+  <div class="loadingInner">
+    <div class="loadingTitle"><span data-i18n="loadingTitle">Cargando tu lista...</span></div>
+    <div class="loadingBarWrap">
+      <div class="loadingBarFill" id="loadingBar"></div>
+    </div>
+    <div class="loadingText" id="loadingText">Buscando pósteres...</div>
+  </div>
+</div>
+
+<!-- GAME SCREEN -->
+<div class="container" id="gameScreen">
+  <div class="posterSection">
+    <div class="posterWrap">
+      <img id="poster" src="" alt="">
+      <div class="posterGlow"></div>
+    </div>
+    <div id="title"></div>
+    <button class="skipMovieBtn" onclick="skipCurrentMovie()" id="skipMovieBtn"><span data-i18n="skipGame1">Saltar (no la vi)</span></button>
+  </div>
+  <div class="buttonsSection">
+    <span class="label"><span data-i18n="whichSpot">¿En qué puesto?</span></span>
+    <div class="buttons" id="buttons"></div>
+
+  </div>
+  <div class="rankingSection">
+    <span class="label"><span data-i18n="yourRanking">Tu ranking</span></span>
+    <div id="ranking"></div>
+  </div>
+</div>
+
+<!-- END SCREEN -->
+<div class="endScreen" id="endScreen">
+  <div class="resultBadge" id="resultBadge"></div>
+  <div class="resultMsg" id="resultMsg"></div>
+  <div class="finalRanking" id="finalRanking"></div>
+  <div class="ratingSection">
+    <div class="ratingRow">
+      <div class="ratingBlock">
+        <span class="ratingLabel"><span data-i18n="ratingQ">Puntuación</span></span>
+        <div class="starsWrap" id="starsWrap"></div>
+      </div>
+      <div class="ratingDivider"></div>
+      <div class="ratingBlock">
+        <span class="ratingLabel"><span data-i18n="liked">Me gustó</span></span>
+        <button class="likeBtn" id="likeBtn" onclick="toggleLike()">
+          <svg class="heartSvg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5 2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53L12 21.35z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="endButtons">
+    <button class="saveBtn" id="saveBtn" onclick="saveToHistory()"><span data-i18n="saveBtn">Guardar en historial</span></button>
+    <button class="shareBtn" id="shareBtnEl" onclick="shareRanking()"><span data-i18n="downloadImg">Compartir ranking</span></button>
+    <button class="playAgainBtn" onclick="startGame()"><span data-i18n="playAgain">Jugar otra vez</span></button>
+  </div>
+  <div class="savedMsg" id="savedMsg"><span data-i18n="saved">✓ Guardado en el historial</span></div>
+</div>
+
+<!-- SHARE CARD -->
+<div id="shareCard" style="position:fixed;left:-9999px;top:0;width:400px;">
+  <div class="shareCardInner">
+    <div class="shareCardBg">
+      <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;top:0;left:0;">
+        <circle cx="380" cy="80" r="160" fill="none" stroke="#00c030" stroke-width="40" opacity="0.08"/>
+        <circle cx="380" cy="80" r="210" fill="none" stroke="#00c030" stroke-width="30" opacity="0.05"/>
+        <circle cx="20" cy="520" r="140" fill="none" stroke="#00c030" stroke-width="35" opacity="0.06"/>
+        <circle cx="20" cy="520" r="190" fill="none" stroke="#00c030" stroke-width="25" opacity="0.04"/>
+      </svg>
+    </div>
+    <div class="shareCardContent">
+      <div class="shareCardHeader">
+        <svg viewBox="0 0 210 44" xmlns="http://www.w3.org/2000/svg" style="width:110px;height:auto;">
+          <rect x="0" y="2" width="26" height="6" rx="3" fill="#00c030"/>
+          <rect x="0" y="16" width="18" height="6" rx="3" fill="#677988"/>
+          <rect x="0" y="30" width="11" height="6" rx="3" fill="#2c3440"/>
+          <text x="38" y="32" font-family="'Inter','DM Sans',sans-serif" font-size="28" font-weight="700" letter-spacing="-1" fill="#ffffff">rankboxd</text>
+          <circle cx="188" cy="8" r="4" fill="#00c030"/>
+        </svg>
+        <div class="shareCardStars" id="shareCardStars"></div>
+      </div>
+      <div class="shareCardMovies" id="shareCardMovies"></div>
+      <div class="shareCardFooter">
+        <div class="shareCardFooterLogo">
+          <svg viewBox="0 0 26 6" style="width:26px;height:auto;">
+            <rect x="0" y="0" width="26" height="6" rx="3" fill="#00c030"/>
+          </svg>
+          <span class="shareCardFooterUrl">rankboxd.vercel.app</span>
+        </div>
+        <div id="shareCardRating"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HISTORY SCREEN -->
+<div class="historyScreen" id="historyScreen">
+  <div class="historyHeader">
+    <button class="backBtn" onclick="goBack()"><span data-i18n="back">← Volver</span></button>
+    <h2><span data-i18n="historyTitle">Historial</span></h2>
+    <div class="headerActions">
+      <button class="clearBtn" onclick="clearHistory()"><span data-i18n="clearAll">Borrar todo</span></button>
+    </div>
+  </div>
+  <div id="historyContent"></div>
+</div>
+
+<!-- PRIVACY MODAL -->
+<div class="privacyOverlay" id="privacyOverlay" onclick="hidePrivacy()"></div>
+<div class="privacyModal" id="privacyModal">
+  <div class="privacyHeader">
+    <h2>Privacy Policy</h2>
+    <button class="privacyClose" onclick="hidePrivacy()">✕</button>
+  </div>
+  <div class="privacyContent">
+    <p><strong>Last updated:</strong> March 2026</p>
+    <p>Rankboxd ("we", "our", "the site") is committed to protecting your privacy. This policy explains how we handle your data.</p>
+
+    <h3>Data we collect</h3>
+    <p>Rankboxd does not collect or store any personal data on our servers. All data is stored locally on your device using <strong>localStorage</strong>:</p>
+    <ul>
+      <li>Your ranking history</li>
+      <li>Language preference (ES/EN)</li>
+    </ul>
+    <p>This data never leaves your device and can be deleted at any time using the "Clear all" button in History.</p>
+
+    <h3>Third-party services</h3>
+    <p><strong>TMDB (The Movie Database):</strong> We use the TMDB API to fetch movie posters. Your Letterboxd file is processed on our server only to search for posters — we do not store it.</p>
+    <p><strong>Google Fonts:</strong> We use Google Fonts to load fonts. Google may collect usage data as per their own privacy policy.</p>
+
+    <h3>Cookies</h3>
+    <p>We do not use cookies. We only use localStorage for saving your preferences locally.</p>
+
+    <h3>Contact</h3>
+    <p>For any privacy questions, contact us at <a href="https://x.com/lannisternacho" target="_blank" style="color:#00c030;">@lannisternacho</a> on X.</p>
+  </div>
+</div>
+
+<!-- TOURNAMENT SIZE SCREEN -->
+<div class="holDiffScreen" id="tournamentSizeScreen">
+  <div class="difficultyHeader">
+    <h2 class="difficultyTitle"><span data-i18n="tournamentSize">Tamaño del torneo</span></h2>
+  </div>
+  <div class="difficultyGrid" style="grid-template-columns:1fr 1fr 1fr;">
+    <div class="diffCard" onclick="startTournamentGame(8)">
+      <div class="diffCardTop"><span class="diffCardNum" style="font-size:36px;">8</span></div>
+      <div class="diffCardName" data-i18n="tournament8name">Cuartos</div>
+      <div class="diffCardDesc" data-i18n="tournament8desc">3 rondas — rápido</div>
+    </div>
+    <div class="diffCard" onclick="startTournamentGame(16)">
+      <div class="diffCardTop"><span class="diffCardNum" style="font-size:36px;">16</span></div>
+      <div class="diffCardName" data-i18n="tournament16name">Épico</div>
+      <div class="diffCardDesc" data-i18n="tournament16desc">4 rondas — completo</div>
+    </div>
+    <div class="diffCard" onclick="startTournamentGame(32)">
+      <div class="diffCardTop"><span class="diffCardNum" style="font-size:36px;color:#e63946;">32</span></div>
+      <div class="diffCardName" data-i18n="tournament32name">Legendario</div>
+      <div class="diffCardDesc" data-i18n="tournament32desc">5 rondas — cinéfilos</div>
+    </div>
+  </div>
+  <button class="backBtn" style="margin-top:24px;" onclick="showGameMenu()"><span data-i18n="back">← Volver</span></button>
+</div>
+
+<!-- TOURNAMENT MATCH SCREEN -->
+<div id="tournamentScreen" style="display:none;">
+  <div class="tRoundHeader">
+    <span class="tRoundName" id="tournamentRoundLabel"></span>
+    <span class="tMatchNum" id="tournamentMatchLabel"></span>
+  </div>
+  <div class="tLayout">
+    <!-- LEFT BRACKET -->
+    <div class="tBracketPanel" id="tBracketLeft"></div>
+    <!-- CENTER MATCH -->
+    <div class="tCenter">
+      <div class="holCards" style="margin:0;">
+        <div class="holCard holCardLeft" id="tCardA" onclick="tournamentPick('A')" style="cursor:pointer;position:relative;">
+          <img class="holPoster" id="tPosterA" src="" alt="">
+          <div class="holCardInfo"><div class="holTitle" id="tTitleA"></div></div>
+          <div class="tPickOverlay" id="tPickA">
+            <svg viewBox="0 0 52 52" width="52" height="52"><circle cx="26" cy="26" r="24" fill="#00c030"/><polyline points="14,27 22,35 38,18" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+        </div>
+        <div class="holVS" id="tVS">VS</div>
+        <div class="holCard holCardRight" id="tCardB" onclick="tournamentPick('B')" style="cursor:pointer;position:relative;">
+          <img class="holPoster" id="tPosterB" src="" alt="">
+          <div class="holCardInfo"><div class="holTitle" id="tTitleB"></div></div>
+          <div class="tPickOverlay" id="tPickB">
+            <svg viewBox="0 0 52 52" width="52" height="52"><circle cx="26" cy="26" r="24" fill="#00c030"/><polyline points="14,27 22,35 38,18" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:12px;">
+        <button class="skipMovieBtn" id="tSkipBtn" onclick="tournamentSkip()" style="display:none;"><span data-i18n="skipGame1">Saltar (no la vi)</span></button>
+      </div>
+    </div>
+    <!-- RIGHT BRACKET -->
+    <div class="tBracketPanel" id="tBracketRight"></div>
+  </div>
+</div>
+
+<!-- TOURNAMENT END SCREEN -->
+<div id="tournamentEndScreen" style="display:none;">
+  <div class="tEndInner">
+    <div class="tEndTop">
+      <div style="font-size:44px;line-height:1;">🏆</div>
+      <div class="tEndChampLabel" data-i18n="tournamentChampion">¡Campeón!</div>
+      <div class="tEndWinnerName" id="tournamentWinnerName"></div>
+      <img id="tournamentWinnerPoster" src="" alt="" class="tEndPoster">
+    </div>
+    <div class="tEndBracketWrap">
+      <canvas id="tBracketCanvas"></canvas>
+    </div>
+    <div class="endButtons" style="justify-content:center;margin-top:20px;flex-wrap:wrap;gap:12px;">
+      <button class="shareBtn" onclick="downloadBracket()" data-i18n="downloadBracket">⬇ Descargar bracket</button>
+      <button class="playAgainBtn" onclick="startTournament()" data-i18n="playAgain">Jugar otra vez</button>
+      <button class="saveBtn" onclick="showGameMenu()" data-i18n="back">← Menú</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
