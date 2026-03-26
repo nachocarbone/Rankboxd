@@ -1,0 +1,512 @@
+[
+  {
+    "id": 1,
+    "question": "Top 10 highest-grossing movies of all time",
+    "question_es": "Top 10 películas más taquilleras de la historia",
+    "answers": [
+      { "name": "Avatar", "genre": "Sci-Fi" },
+      { "name": "Avengers: Endgame", "genre": "Action" },
+      { "name": "Avatar: The Way of Water", "genre": "Sci-Fi" },
+      { "name": "Titanic", "genre": "Romance" },
+      { "name": "Star Wars: The Force Awakens", "genre": "Sci-Fi" },
+      { "name": "Avengers: Infinity War", "genre": "Action" },
+      { "name": "Spider-Man: No Way Home", "genre": "Action" },
+      { "name": "Jurassic World", "genre": "Adventure" },
+      { "name": "The Lion King", "genre": "Animation" },
+      { "name": "The Avengers", "genre": "Action" }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "Top 10 highest rated movies on IMDb",
+    "question_es": "Top 10 películas mejor rankeadas en IMDb",
+    "answers": [
+      { "name": "The Shawshank Redemption", "genre": "Drama" },
+      { "name": "The Godfather", "genre": "Crime" },
+      { "name": "The Dark Knight", "genre": "Action" },
+      { "name": "The Godfather Part II", "genre": "Crime" },
+      { "name": "12 Angry Men", "genre": "Drama" },
+      { "name": "Schindler's List", "genre": "Drama" },
+      { "name": "The Lord of the Rings: The Return of the King", "genre": "Fantasy" },
+      { "name": "Pulp Fiction", "genre": "Crime" },
+      { "name": "The Lord of the Rings: The Fellowship of the Ring", "genre": "Fantasy" },
+      { "name": "Il Buono, il Brutto, il Cattivo", "genre": "Western" }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "Top 10 most recent Best Picture Oscar winners",
+    "question_es": "Top 10 ganadores más recientes del Oscar a Mejor Película",
+    "answers": [
+      { "name": "Oppenheimer", "genre": "Drama" },
+      { "name": "Everything Everywhere All at Once", "genre": "Sci-Fi" },
+      { "name": "CODA", "genre": "Drama" },
+      { "name": "Nomadland", "genre": "Drama" },
+      { "name": "Parasite", "genre": "Thriller" },
+      { "name": "Green Book", "genre": "Drama" },
+      { "name": "The Shape of Water", "genre": "Fantasy" },
+      { "name": "Moonlight", "genre": "Drama" },
+      { "name": "Spotlight", "genre": "Drama" },
+      { "name": "Birdman", "genre": "Drama" }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "Top 10 highest-grossing animated movies of all time",
+    "question_es": "Top 10 películas de animación más taquilleras",
+    "answers": [
+      { "name": "The Lion King", "genre": "Animation" },
+      { "name": "Frozen II", "genre": "Animation" },
+      { "name": "The Super Mario Bros. Movie", "genre": "Animation" },
+      { "name": "Incredibles 2", "genre": "Animation" },
+      { "name": "Minions", "genre": "Animation" },
+      { "name": "Toy Story 4", "genre": "Animation" },
+      { "name": "Despicable Me 3", "genre": "Animation" },
+      { "name": "Finding Dory", "genre": "Animation" },
+      { "name": "Zootopia", "genre": "Animation" },
+      { "name": "Inside Out 2", "genre": "Animation" }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "Top 10 highest-grossing superhero movies",
+    "question_es": "Top 10 películas de superhéroes más taquilleras",
+    "answers": [
+      { "name": "Avengers: Endgame", "genre": "Action" },
+      { "name": "Avengers: Infinity War", "genre": "Action" },
+      { "name": "Spider-Man: No Way Home", "genre": "Action" },
+      { "name": "The Avengers", "genre": "Action" },
+      { "name": "The Dark Knight Rises", "genre": "Action" },
+      { "name": "Aquaman", "genre": "Action" },
+      { "name": "Black Panther", "genre": "Action" },
+      { "name": "Iron Man 3", "genre": "Action" },
+      { "name": "Captain America: Civil War", "genre": "Action" },
+      { "name": "The Dark Knight", "genre": "Action" }
+    ]
+  },
+  {
+    "id": 6,
+    "question": "Top 10 highest-grossing horror movies",
+    "question_es": "Top 10 películas de terror más taquilleras",
+    "answers": [
+      { "name": "It", "genre": "Horror" },
+      { "name": "It Chapter Two", "genre": "Horror" },
+      { "name": "The Sixth Sense", "genre": "Horror" },
+      { "name": "War of the Worlds", "genre": "Sci-Fi" },
+      { "name": "I Am Legend", "genre": "Horror" },
+      { "name": "Signs", "genre": "Horror" },
+      { "name": "A Quiet Place Part II", "genre": "Horror" },
+      { "name": "Jaws", "genre": "Horror" },
+      { "name": "The Conjuring 2", "genre": "Horror" },
+      { "name": "Smile", "genre": "Horror" }
+    ]
+  },
+  {
+    "id": 7,
+    "question": "Top 10 most Oscar-nominated movies ever",
+    "question_es": "Top 10 películas con más nominaciones al Oscar",
+    "answers": [
+      { "name": "All About Eve", "genre": "Drama" },
+      { "name": "Titanic", "genre": "Romance" },
+      { "name": "La La Land", "genre": "Musical" },
+      { "name": "Ben-Hur", "genre": "Epic" },
+      { "name": "The Godfather Part II", "genre": "Crime" },
+      { "name": "Forrest Gump", "genre": "Drama" },
+      { "name": "Schindler's List", "genre": "Drama" },
+      { "name": "Casablanca", "genre": "Romance" },
+      { "name": "Mrs. Miniver", "genre": "Drama" },
+      { "name": "Chicago", "genre": "Musical" }
+    ]
+  },
+  {
+    "id": 8,
+    "question": "Top 10 highest-grossing film franchises",
+    "question_es": "Top 10 franquicias más taquilleras de la historia",
+    "answers": [
+      { "name": "Marvel Cinematic Universe", "genre": "Action" },
+      { "name": "Star Wars", "genre": "Sci-Fi" },
+      { "name": "Harry Potter", "genre": "Fantasy" },
+      { "name": "James Bond", "genre": "Action" },
+      { "name": "Fast & Furious", "genre": "Action" },
+      { "name": "Jurassic Park", "genre": "Adventure" },
+      { "name": "The Lord of the Rings", "genre": "Fantasy" },
+      { "name": "Spider-Man", "genre": "Action" },
+      { "name": "Transformers", "genre": "Action" },
+      { "name": "Batman", "genre": "Action" }
+    ]
+  },
+  {
+    "id": 9,
+    "question": "Top 10 movies by Christopher Nolan (box office)",
+    "question_es": "Top 10 películas de Christopher Nolan por taquilla",
+    "answers": [
+      { "name": "Oppenheimer", "genre": "Drama" },
+      { "name": "The Dark Knight Rises", "genre": "Action" },
+      { "name": "The Dark Knight", "genre": "Action" },
+      { "name": "Interstellar", "genre": "Sci-Fi" },
+      { "name": "Inception", "genre": "Sci-Fi" },
+      { "name": "Batman Begins", "genre": "Action" },
+      { "name": "Dunkirk", "genre": "War" },
+      { "name": "Tenet", "genre": "Action" },
+      { "name": "The Prestige", "genre": "Drama" },
+      { "name": "Memento", "genre": "Thriller" }
+    ]
+  },
+  {
+    "id": 10,
+    "question": "Top 10 movies by Steven Spielberg (box office)",
+    "question_es": "Top 10 películas de Steven Spielberg por taquilla",
+    "answers": [
+      { "name": "Jurassic Park", "genre": "Adventure" },
+      { "name": "E.T. the Extra-Terrestrial", "genre": "Sci-Fi" },
+      { "name": "The Lost World: Jurassic Park", "genre": "Adventure" },
+      { "name": "Indiana Jones and the Kingdom of the Crystal Skull", "genre": "Adventure" },
+      { "name": "Jaws", "genre": "Horror" },
+      { "name": "Ready Player One", "genre": "Sci-Fi" },
+      { "name": "War of the Worlds", "genre": "Sci-Fi" },
+      { "name": "Indiana Jones and the Last Crusade", "genre": "Adventure" },
+      { "name": "Schindler's List", "genre": "Drama" },
+      { "name": "Saving Private Ryan", "genre": "War" }
+    ]
+  },
+  {
+    "id": 11,
+    "question": "Top 10 Quentin Tarantino movies by IMDb rating",
+    "question_es": "Top 10 películas de Quentin Tarantino según IMDb",
+    "answers": [
+      { "name": "Pulp Fiction", "genre": "Crime" },
+      { "name": "Inglourious Basterds", "genre": "War" },
+      { "name": "Django Unchained", "genre": "Western" },
+      { "name": "Reservoir Dogs", "genre": "Crime" },
+      { "name": "Kill Bill: Volume 1", "genre": "Action" },
+      { "name": "The Hateful Eight", "genre": "Western" },
+      { "name": "Once Upon a Time in Hollywood", "genre": "Drama" },
+      { "name": "Kill Bill: Volume 2", "genre": "Action" },
+      { "name": "Jackie Brown", "genre": "Crime" },
+      { "name": "Four Rooms", "genre": "Comedy" }
+    ]
+  },
+  {
+    "id": 12,
+    "question": "Top 10 Martin Scorsese movies by IMDb rating",
+    "question_es": "Top 10 películas de Martin Scorsese según IMDb",
+    "answers": [
+      { "name": "Goodfellas", "genre": "Crime" },
+      { "name": "The Departed", "genre": "Crime" },
+      { "name": "Raging Bull", "genre": "Drama" },
+      { "name": "Taxi Driver", "genre": "Drama" },
+      { "name": "Shutter Island", "genre": "Thriller" },
+      { "name": "The Wolf of Wall Street", "genre": "Drama" },
+      { "name": "Casino", "genre": "Crime" },
+      { "name": "Killers of the Flower Moon", "genre": "Drama" },
+      { "name": "The Irishman", "genre": "Crime" },
+      { "name": "Cape Fear", "genre": "Thriller" }
+    ]
+  },
+  {
+    "id": 13,
+    "question": "Top 10 best rated sci-fi movies",
+    "question_es": "Top 10 películas de ciencia ficción mejor rankeadas",
+    "answers": [
+      { "name": "Inception", "genre": "Sci-Fi" },
+      { "name": "Interstellar", "genre": "Sci-Fi" },
+      { "name": "2001: A Space Odyssey", "genre": "Sci-Fi" },
+      { "name": "The Matrix", "genre": "Sci-Fi" },
+      { "name": "Alien", "genre": "Sci-Fi" },
+      { "name": "Blade Runner", "genre": "Sci-Fi" },
+      { "name": "Metropolis", "genre": "Sci-Fi" },
+      { "name": "Arrival", "genre": "Sci-Fi" },
+      { "name": "WALL·E", "genre": "Animation" },
+      { "name": "Gravity", "genre": "Sci-Fi" }
+    ]
+  },
+  {
+    "id": 14,
+    "question": "Top 10 best rated movies of the 90s",
+    "question_es": "Top 10 películas de los 90s según IMDb",
+    "answers": [
+      { "name": "The Silence of the Lambs", "genre": "Thriller" },
+      { "name": "Schindler's List", "genre": "Drama" },
+      { "name": "Pulp Fiction", "genre": "Crime" },
+      { "name": "Goodfellas", "genre": "Crime" },
+      { "name": "Se7en", "genre": "Thriller" },
+      { "name": "Fight Club", "genre": "Drama" },
+      { "name": "The Shawshank Redemption", "genre": "Drama" },
+      { "name": "Forrest Gump", "genre": "Drama" },
+      { "name": "The Matrix", "genre": "Sci-Fi" },
+      { "name": "American History X", "genre": "Drama" }
+    ]
+  },
+  {
+    "id": 15,
+    "question": "Top 10 best rated movies of the 80s",
+    "question_es": "Top 10 películas de los 80s según IMDb",
+    "answers": [
+      { "name": "Raging Bull", "genre": "Drama" },
+      { "name": "Scarface", "genre": "Crime" },
+      { "name": "Das Boot", "genre": "War" },
+      { "name": "Raiders of the Lost Ark", "genre": "Adventure" },
+      { "name": "Come and See", "genre": "War" },
+      { "name": "Full Metal Jacket", "genre": "War" },
+      { "name": "Back to the Future", "genre": "Sci-Fi" },
+      { "name": "Blade Runner", "genre": "Sci-Fi" },
+      { "name": "The Terminator", "genre": "Sci-Fi" },
+      { "name": "Amadeus", "genre": "Drama" }
+    ]
+  },
+  {
+    "id": 16,
+    "question": "Top 10 best rated movies of the 2000s",
+    "question_es": "Top 10 películas de los 2000s según IMDb",
+    "answers": [
+      { "name": "The Dark Knight", "genre": "Action" },
+      { "name": "The Lord of the Rings: The Return of the King", "genre": "Fantasy" },
+      { "name": "Memento", "genre": "Thriller" },
+      { "name": "City of God", "genre": "Crime" },
+      { "name": "Gladiator", "genre": "Epic" },
+      { "name": "Requiem for a Dream", "genre": "Drama" },
+      { "name": "Eternal Sunshine of the Spotless Mind", "genre": "Romance" },
+      { "name": "Pan's Labyrinth", "genre": "Fantasy" },
+      { "name": "No Country for Old Men", "genre": "Thriller" },
+      { "name": "There Will Be Blood", "genre": "Drama" }
+    ]
+  },
+  {
+    "id": 17,
+    "question": "Top 10 best rated thrillers",
+    "question_es": "Top 10 thrillers mejor rankeadas según IMDb",
+    "answers": [
+      { "name": "The Silence of the Lambs", "genre": "Thriller" },
+      { "name": "Se7en", "genre": "Thriller" },
+      { "name": "Psycho", "genre": "Thriller" },
+      { "name": "Rear Window", "genre": "Thriller" },
+      { "name": "No Country for Old Men", "genre": "Thriller" },
+      { "name": "Vertigo", "genre": "Thriller" },
+      { "name": "North by Northwest", "genre": "Thriller" },
+      { "name": "Memento", "genre": "Thriller" },
+      { "name": "The Usual Suspects", "genre": "Thriller" },
+      { "name": "Parasite", "genre": "Thriller" }
+    ]
+  },
+  {
+    "id": 18,
+    "question": "Top 10 actors with most Oscar nominations",
+    "question_es": "Top 10 actores con más nominaciones al Oscar",
+    "answers": [
+      { "name": "Meryl Streep", "genre": "Drama" },
+      { "name": "Katharine Hepburn", "genre": "Drama" },
+      { "name": "Jack Nicholson", "genre": "Drama" },
+      { "name": "Bette Davis", "genre": "Drama" },
+      { "name": "Laurence Olivier", "genre": "Drama" },
+      { "name": "Cate Blanchett", "genre": "Drama" },
+      { "name": "Geraldine Page", "genre": "Drama" },
+      { "name": "Spencer Tracy", "genre": "Drama" },
+      { "name": "Marlon Brando", "genre": "Drama" },
+      { "name": "Denzel Washington", "genre": "Drama" }
+    ]
+  },
+  {
+    "id": 19,
+    "question": "Top 10 highest-grossing directors",
+    "question_es": "Top 10 directores más taquilleros de la historia",
+    "answers": [
+      { "name": "Steven Spielberg", "genre": "Adventure" },
+      { "name": "Anthony Russo", "genre": "Action" },
+      { "name": "Joe Russo", "genre": "Action" },
+      { "name": "Peter Jackson", "genre": "Fantasy" },
+      { "name": "Michael Bay", "genre": "Action" },
+      { "name": "James Cameron", "genre": "Sci-Fi" },
+      { "name": "Christopher Nolan", "genre": "Sci-Fi" },
+      { "name": "David Yates", "genre": "Fantasy" },
+      { "name": "Tim Burton", "genre": "Fantasy" },
+      { "name": "Ridley Scott", "genre": "Drama" }
+    ]
+  },
+  {
+    "id": 20,
+    "question": "Top 10 best rated comedies",
+    "question_es": "Top 10 comedias mejor rankeadas de la historia",
+    "answers": [
+      { "name": "Some Like It Hot", "genre": "Comedy" },
+      { "name": "Dr. Strangelove", "genre": "Comedy" },
+      { "name": "The Great Dictator", "genre": "Comedy" },
+      { "name": "Monty Python and the Holy Grail", "genre": "Comedy" },
+      { "name": "Annie Hall", "genre": "Comedy" },
+      { "name": "Modern Times", "genre": "Comedy" },
+      { "name": "City Lights", "genre": "Comedy" },
+      { "name": "Groundhog Day", "genre": "Comedy" },
+      { "name": "Life is Beautiful", "genre": "Comedy" },
+      { "name": "The General", "genre": "Comedy" }
+    ]
+  },
+  {
+    "id": 21,
+    "question": "Top 10 Tim Burton movies by popularity",
+    "question_es": "Top 10 películas de Tim Burton por popularidad",
+    "answers": [
+      { "name": "Batman", "genre": "Action" },
+      { "name": "Alice in Wonderland", "genre": "Fantasy" },
+      { "name": "Batman Returns", "genre": "Action" },
+      { "name": "Edward Scissorhands", "genre": "Fantasy" },
+      { "name": "Beetlejuice", "genre": "Comedy" },
+      { "name": "Big Eyes", "genre": "Drama" },
+      { "name": "Corpse Bride", "genre": "Animation" },
+      { "name": "Charlie and the Chocolate Factory", "genre": "Fantasy" },
+      { "name": "Sleepy Hollow", "genre": "Horror" },
+      { "name": "Big Fish", "genre": "Fantasy" }
+    ]
+  },
+  {
+    "id": 22,
+    "question": "Top 10 most profitable remakes",
+    "question_es": "Top 10 remakes más taquilleros de la historia",
+    "answers": [
+      { "name": "The Lion King", "genre": "Animation" },
+      { "name": "Beauty and the Beast", "genre": "Musical" },
+      { "name": "Aladdin", "genre": "Musical" },
+      { "name": "Cinderella", "genre": "Fantasy" },
+      { "name": "Total Recall", "genre": "Sci-Fi" },
+      { "name": "The Jungle Book", "genre": "Adventure" },
+      { "name": "A Star Is Born", "genre": "Drama" },
+      { "name": "Dumbo", "genre": "Animation" },
+      { "name": "Mulan", "genre": "Action" },
+      { "name": "Maleficent", "genre": "Fantasy" }
+    ]
+  },
+  {
+    "id": 23,
+    "question": "Top 10 best war movies by IMDb rating",
+    "question_es": "Top 10 películas bélicas mejor rankeadas",
+    "answers": [
+      { "name": "Schindler's List", "genre": "War" },
+      { "name": "Saving Private Ryan", "genre": "War" },
+      { "name": "Apocalypse Now", "genre": "War" },
+      { "name": "Full Metal Jacket", "genre": "War" },
+      { "name": "Dunkirk", "genre": "War" },
+      { "name": "Das Boot", "genre": "War" },
+      { "name": "Come and See", "genre": "War" },
+      { "name": "Paths of Glory", "genre": "War" },
+      { "name": "Inglourious Basterds", "genre": "War" },
+      { "name": "The Bridge on the River Kwai", "genre": "War" }
+    ]
+  },
+  {
+    "id": 24,
+    "question": "Top 10 best rated crime movies",
+    "question_es": "Top 10 películas de crimen mejor rankeadas",
+    "answers": [
+      { "name": "The Godfather", "genre": "Crime" },
+      { "name": "The Godfather Part II", "genre": "Crime" },
+      { "name": "Pulp Fiction", "genre": "Crime" },
+      { "name": "Goodfellas", "genre": "Crime" },
+      { "name": "The Departed", "genre": "Crime" },
+      { "name": "City of God", "genre": "Crime" },
+      { "name": "Reservoir Dogs", "genre": "Crime" },
+      { "name": "Fargo", "genre": "Crime" },
+      { "name": "No Country for Old Men", "genre": "Crime" },
+      { "name": "Heat", "genre": "Crime" }
+    ]
+  },
+  {
+    "id": 25,
+    "question": "Top 10 movies with the biggest critic vs audience gap",
+    "question_es": "Top 10 películas con mayor diferencia entre crítica y público",
+    "answers": [
+      { "name": "The Room", "genre": "Drama" },
+      { "name": "Morbius", "genre": "Action" },
+      { "name": "Batman v Superman", "genre": "Action" },
+      { "name": "Suicide Squad", "genre": "Action" },
+      { "name": "Transformers: Age of Extinction", "genre": "Action" },
+      { "name": "Venom", "genre": "Action" },
+      { "name": "Mother!", "genre": "Horror" },
+      { "name": "Uncut Gems", "genre": "Thriller" },
+      { "name": "Cats", "genre": "Musical" },
+      { "name": "Justice League", "genre": "Action" }
+    ]
+  },
+  {
+    "id": 26,
+    "question": "Top 10 best rated fantasy movies",
+    "question_es": "Top 10 películas de fantasía mejor rankeadas",
+    "answers": [
+      { "name": "The Lord of the Rings: The Return of the King", "genre": "Fantasy" },
+      { "name": "The Lord of the Rings: The Fellowship of the Ring", "genre": "Fantasy" },
+      { "name": "The Lord of the Rings: The Two Towers", "genre": "Fantasy" },
+      { "name": "Pan's Labyrinth", "genre": "Fantasy" },
+      { "name": "Spirited Away", "genre": "Animation" },
+      { "name": "The Princess Bride", "genre": "Fantasy" },
+      { "name": "The Wizard of Oz", "genre": "Fantasy" },
+      { "name": "Edward Scissorhands", "genre": "Fantasy" },
+      { "name": "Big Fish", "genre": "Fantasy" },
+      { "name": "The Shape of Water", "genre": "Fantasy" }
+    ]
+  },
+  {
+    "id": 27,
+    "question": "Top 10 Pixar movies by box office",
+    "question_es": "Top 10 películas de Pixar por taquilla",
+    "answers": [
+      { "name": "Incredibles 2", "genre": "Animation" },
+      { "name": "Finding Dory", "genre": "Animation" },
+      { "name": "Toy Story 4", "genre": "Animation" },
+      { "name": "Inside Out 2", "genre": "Animation" },
+      { "name": "Toy Story 3", "genre": "Animation" },
+      { "name": "Finding Nemo", "genre": "Animation" },
+      { "name": "Coco", "genre": "Animation" },
+      { "name": "Monsters University", "genre": "Animation" },
+      { "name": "Up", "genre": "Animation" },
+      { "name": "Inside Out", "genre": "Animation" }
+    ]
+  },
+  {
+    "id": 28,
+    "question": "Top 10 best rated animated movies",
+    "question_es": "Top 10 películas de animación mejor rankeadas",
+    "answers": [
+      { "name": "Spirited Away", "genre": "Animation" },
+      { "name": "WALL·E", "genre": "Animation" },
+      { "name": "Your Name", "genre": "Animation" },
+      { "name": "Grave of the Fireflies", "genre": "Animation" },
+      { "name": "Princess Mononoke", "genre": "Animation" },
+      { "name": "Toy Story", "genre": "Animation" },
+      { "name": "Howl's Moving Castle", "genre": "Animation" },
+      { "name": "The Lion King", "genre": "Animation" },
+      { "name": "Coco", "genre": "Animation" },
+      { "name": "Up", "genre": "Animation" }
+    ]
+  },
+  {
+    "id": 29,
+    "question": "Top 10 Stanley Kubrick movies by IMDb rating",
+    "question_es": "Top 10 películas de Stanley Kubrick según IMDb",
+    "answers": [
+      { "name": "2001: A Space Odyssey", "genre": "Sci-Fi" },
+      { "name": "A Clockwork Orange", "genre": "Sci-Fi" },
+      { "name": "Full Metal Jacket", "genre": "War" },
+      { "name": "Dr. Strangelove", "genre": "Comedy" },
+      { "name": "The Shining", "genre": "Horror" },
+      { "name": "Paths of Glory", "genre": "War" },
+      { "name": "Eyes Wide Shut", "genre": "Drama" },
+      { "name": "Barry Lyndon", "genre": "Drama" },
+      { "name": "Spartacus", "genre": "Epic" },
+      { "name": "Lolita", "genre": "Drama" }
+    ]
+  },
+  {
+    "id": 30,
+    "question": "Top 10 best rated movies of the 2010s",
+    "question_es": "Top 10 películas de los 2010s según IMDb",
+    "answers": [
+      { "name": "Inception", "genre": "Sci-Fi" },
+      { "name": "Interstellar", "genre": "Sci-Fi" },
+      { "name": "The Dark Knight Rises", "genre": "Action" },
+      { "name": "Parasite", "genre": "Thriller" },
+      { "name": "Whiplash", "genre": "Drama" },
+      { "name": "Mad Max: Fury Road", "genre": "Action" },
+      { "name": "Django Unchained", "genre": "Western" },
+      { "name": "The Wolf of Wall Street", "genre": "Drama" },
+      { "name": "Gone Girl", "genre": "Thriller" },
+      { "name": "Her", "genre": "Sci-Fi" }
+    ]
+  }
+]
